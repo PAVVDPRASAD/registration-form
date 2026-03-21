@@ -29,7 +29,8 @@ function validate(index){
     }else{
         if(error) 
         error.innerText = "";
-        
+        input.style.borderColor = "#028045"
+        input.style.borderWidth = "2px"
     }
    });
    return valid
@@ -46,13 +47,12 @@ tabs.forEach((tab,index) => {
             signupForm.classList.remove('active')
             loginForm.classList.add('active')
             if (index === 0) {
-                let inputs = tabs[index].querySelectorAll('input')
                 alert('Signup Successful!')
                 tabs[index].classList.remove('active');
                 menuBtn[index].classList.remove('active-btn')
                 tabs[index+1].classList.add('active');
                 menuBtn[index+1].classList.add('active-btn')
-                inputs.style.borderColor = "#028045"
+
             }
             else{
                 alert("Login Successfull!")
@@ -62,6 +62,7 @@ tabs.forEach((tab,index) => {
                 menuBtn[index].classList.remove('active-btn')
                 menuBtn[0].style.display = "none"
                 menuBtn[1].style.display = "none"
+
             }
 
         }
