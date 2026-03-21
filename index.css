@@ -14,7 +14,7 @@ body{
     padding: 35px;
     border-radius: 14px;
     background-color: rgb(248, 248, 250);
-    min-height: 400px;
+    /* min-height: 400px; */
     width: 350px;
     backdrop-filter: blur(100px);
     
@@ -54,31 +54,57 @@ body{
 }
 
 .form-container{
-    display: flex;
-    flex-direction: column;
-    /* gap: 15px; */
-    justify-content: center;
-    align-items: center;
+    margin-top: 30px;
+    /* padding-left: 60px; */
 }
 
-button{
+.sub-tab{
+    font-weight: bold;
+    width: 100%;
+    padding: 8px;
+    cursor: pointer;
+    border: 0.5px solid #ebe8e8;
+    border-radius: 4px;
+    margin-top: 0px;
+    background-color: transparent;
+    color: grey;
+    font-size: 12px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.sub-tab:hover{
+    border: 1px solid #5b54e6 ;
+    color: #5b54e6;
+    font-weight: bold;
+    border-radius: 10px;
+}
+.sub-tab.active{
+    background-color: #5b54e6;
+    color: white;
+    border: 1px solid #5b54e6;
+    font-weight: bold;
+    border-radius: 10px;
+}
+ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+}
+.submit-btn{
+    color: #fff;
+    background-color: #5b54e6 ;
+    backdrop-filter: blur(50px);
+    border-radius: 20px;
     font-weight: bold;
     width: 180px;
     padding: 10px;
     cursor: pointer;
     border: none;
-    border-radius: 4px;
     margin-top: 0px;
 }
-.submitBTn{
-    color: #fff;
-    /* background-image: linear-gradient(to right, #4F46E5 ); */
-    background-color: #5b54e6 ;
-    backdrop-filter: blur(50px);
-    border-radius: 20px;
-
-}
-.submitBTn:hover{
+.submit-btn:hover{
     background-image: linear-gradient(to right, #6b64e9 , blue , rgb(10, 161, 207));
 }
 
@@ -149,7 +175,15 @@ button{
 
 @media screen and (min-width: 576px) {
     .main-container{
-        width: 750px;
+        width: 500px;
         /* height: 100%; */
     }
+    .input-box{
+        width: 400px;
+
+    }
+    .form-container{
+        padding-left: 20px;
+    }
+    
 }

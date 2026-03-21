@@ -1,7 +1,49 @@
-let currentTab= 0;
+let currentTab = 0;
+let currentStep = 0;
 const tabs = document.querySelectorAll('.tab')
 const menuBtn = document.querySelectorAll('.menu-btn')
 const homepageEle = document.getElementById('homepage')
+const subTabBtn = document.querySelectorAll('.sub-tab')
+const formContainers = document.querySelectorAll('#signupForm .form-container')
+
+console.log(formContainers)
+
+function showStep(step) {
+    formContainers.forEach((container, index) => {
+        container.style.display = index === step ? 'block' : 'none';
+    });
+    subTabBtn.forEach((tab, index) => {
+        tab.classList.toggle('active', index === step);
+    });
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('signupBtn');
+    prevBtn.style.display = step === 0 ? 'none' : 'inline-block';
+    if (step === formContainers.length - 1) {
+        nextBtn.textContent = 'Submit';
+        nextBtn.type = 'submit';
+    } else {
+        nextBtn.textContent = 'Next';
+        nextBtn.type = 'button';
+    }
+}
+
+function nextStep() {
+    if (validateStep(currentStep)) {
+        if (currentStep < formContainers.length - 1) {
+            currentStep++;
+            showStep(currentStep);
+        } else {
+            document.getElementById('signupForm').dispatchEvent(new Event('submit'));
+        }
+    }
+}
+
+function prevStep() {
+    if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+    }
+}
 
 function switchTab(index){
     currentTab = index;
@@ -10,19 +52,27 @@ function switchTab(index){
 
     tabs[index].classList.add('active');
     menuBtn[index].classList.add('active-btn')
+    if (index === 1){
+        subTabBtn.forEach(btn => btn.style.display = "none")
+    }
+    else{
+        subTabBtn.forEach(btn => btn.style.display = "block")
+        currentStep = 0;
+        showStep(0);
+    }
 }
-
-function validate(index){
+//signup form valdation
+function validateStep(step){
     let valid = true
-    let inputs = tabs[index].querySelectorAll('input')
-
+    let inputs = formContainers[step].querySelectorAll('input')
+    console.log(inputs)
    inputs.forEach( input => {
     let parent = input.parentElement;
     let error = parent? parent.parentElement.querySelector('.error') : null
 
     if (input.value.trim() === ""){
         if(error) 
-        error.innerText = "THIS FIELD IS REQUIRED";
+        error.innerText = "This field is required.";
         input.style.borderColor = "#DC2626"
         input.style.borderWidth = "2px"
         valid = false;
@@ -36,13 +86,72 @@ function validate(index){
    return valid
 };
 
+function validateAllSteps(){
+    let valid = true
+    for (let i = 0; i<formContainers.length; i++) {
+        let inputs = formContainers[i].querySelectorAll('input')
+        inputs.forEach(input => {
+            let parent = input.parentElement;
+            let error = parent? parent.parentElement.querySelector('.error') : null
+            
+            if (input.value.trim() === ""){
+                if(error) 
+                error.innerText = "This field is required.";
+                input.style.borderColor = "#DC2626"
+                input.style.borderWidth = "2px"
+                valid = false;
+            }else{
+                if(error) 
+                error.innerText = "";
+                input.style.borderColor = "#028045"
+                input.style.borderWidth = "2px"
+            }
+        });
+    }
+    return valid
+};
+// login form valdation
+function validate(index){
+    let valid = true
+    let inputs = tabs[index].querySelectorAll('input')
+
+   inputs.forEach( input => {
+    let parent = input.parentElement;
+    let error = parent? parent.parentElement.querySelector('.error') : null
+
+    if (input.value.trim() === ""){
+        if(error) 
+        error.innerText = "This field is required.";
+        input.style.borderColor = "#DC2626"
+        input.style.borderWidth = "2px"
+        valid = false;
+    }else{
+        if(error) 
+        error.innerText = "";
+        input.style.borderColor = "#028045"
+        input.style.borderWidth = "2px"
+    }
+   });
+   return valid
+};
+
+subTabBtn.forEach((tab, index) => {
+    tab.addEventListener('click', () => {
+        if (currentTab === 0) {
+            currentStep = index;
+            showStep(currentStep);
+        }
+    });
+});
+
 tabs.forEach((tab,index) => {
     const signupForm = document.getElementById('signupForm')
     const loginForm = document.getElementById('loginForm')
 
     tab.addEventListener('submit', (e)=>{
         e.preventDefault();
-        if (validate(index)){
+        let isValid = index === 0 ? validateAllSteps() : validate(index);
+        if (isValid){
             console.log(index)
             signupForm.classList.remove('active')
             loginForm.classList.add('active')
@@ -55,7 +164,7 @@ tabs.forEach((tab,index) => {
 
             }
             else{
-                alert("Login Successfull!")
+                alert("Login Successful!")
                 loginForm.classList.remove('active');
                 homepageEle.classList.add('active')
                 tabs[index].classList.remove('active');
@@ -66,5 +175,14 @@ tabs.forEach((tab,index) => {
             }
 
         }
+        else{
+            alert("Please fill all the required fields.")
+        }
     })
 })
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    showStep(0);
+});
+

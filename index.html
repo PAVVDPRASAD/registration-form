@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <meta name = "viewport" content="width=device-width, intial-scale=1.0">
-    <title>Registration Form</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-</head>
 <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registration Form</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    </head>
     <body>
         <div class="main-container">
             <div class="tab-cont">
@@ -14,9 +14,16 @@
                 <button class="menu-btn" type="button" onclick="switchTab(1)">Login</button>
             </div>
             <hr />
+            
+            <ul class="" id="subTabCont">
+                <li><button class="sub-tab">Personal Details</button></li>
+                <li><button class="sub-tab">Address</button></li>
+                <li><button class="sub-tab">Education</button></li>
+            </ul>
+            <hr />
 
             <form class="tab active" id="signupForm">
-                <div class="form-container">
+                <div class="form-container  ">
                     <div>
                         <div class="input-box">
                             <input type="text" id="first" placeholder="First Name"/>
@@ -45,26 +52,71 @@
                         </div>
                         <p class="error"></p>
                     </div>
+                </div>
+
+                <div class="form-container ">
                     <div>
                         <div class="input-box">
-                            <input type="text" id="company" placeholder="Company" />
-                            <label for="company">Company</label>
+                            <input type="text" id="address" placeholder="Street Address"/>
+                            <label for="address">Street Address</label>
                         </div>
                         <p class="error"></p>
                     </div>
-                    <!-- <div>
-                        <input type="checkbox" />
-                        <label>I agree to the <span style="color: blue;">Terms & Condition</span></label>
-                    </div> -->
-                    <button type="submit" id="signupBtn" class=" submitBTn" style="margin-top: 20px;">Signup</button>
+                    <div>
+                        <div class="input-box">
+                            <input type="text" id="city" placeholder="City"/>
+                            <label for="city">City</label>
+                        </div>
+                        <p class="error"></p>
+                    </div>
+                    <div>
+                        <div class="input-box">
+                            <input type="text" id="state" placeholder="State"/>
+                            <label for="state">State</label>
+                        </div>
+                        <p class="error"></p>
+                    </div>
+                    <div>
+                        <div class="input-box">
+                            <input type="number" id="zip" placeholder="Zip Code"/>
+                            <label for="zip">Zip Code</label>
+                        </div>
+                        <p class="error"></p>
+                    </div>
                 </div>
+
+                <div class="form-container ">
+                    <div>
+                        <div class="input-box">
+                            <input type="text" id="qualification" placeholder="Qualification"/>
+                            <label for="qualification">Qualification</label>
+                        </div>
+                        <p class="error"></p>
+                    </div>
+                    <div>
+                        <div class="input-box">
+                            <input type="text" id="skills" placeholder="Skills"/>
+                            <label for="skills">Skills</label>
+                        </div>
+                        <p class="error"></p>
+                    </div>
+                </div>
+                <!-- <div>
+                    <input type="checkbox" />
+                    <label>I agree to the <span style="color: blue;">Terms & Condition</span></label>
+                </div> -->
+                <div>
+                    <button type="button" id="prevBtn" class="submit-btn" onclick="prevStep()">Previous</button>
+                    <button type="button" id="signupBtn" class="submit-btn" style="margin-top: 20px;" onclick="nextStep()">Next</button>
+                </div>
+                
             </form>
 
             <form class="tab" id="loginForm">
                 <div class="form-container">
                     <div>
                         <div class="input-box">
-                            <input type="email" id="user" placeholder="User Name"/>
+                            <input type="text" id="user" placeholder="User Name"/>
                             <label for="user">User Name</label>
                         </div>
                         <p class="error"></p>
@@ -76,13 +128,13 @@
                         </div>
                         <p class="error"></p>
                     </div>
-                    <button type="submit" id="loginBtn" class=" submitBTn">Login</button>
+                    <button type="submit" id="loginBtn" class="submit-btn">Login</button>
                 </div>
             </form>
 
             <div id="homepage" class="tab  homepage">
-                <h1>Welome Home</h1>
-                <p>You have Successfully Logged</p>
+                <h1>Welcome Home</h1>
+                <p>You have successfully logged in</p>
                 <!-- <a href="companyWebpage/index.html">company profile</a> -->
                 <button type="button" 
                 id="logoutBtn" 
