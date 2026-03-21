@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name = "viewport" content="width=device-width, intial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<html>
+    <body>
+        <div class="main-container">
+            <div class="tab-cont">
+                <button class="menu-btn active-btn" type="button" onclick="switchTab(0)">Signup</button>
+                <button class="menu-btn" type="button" onclick="switchTab(1)">Login</button>
+            </div>
+            <hr />
+
+            <form class="tab active" id="signupForm">
+                <div class="form-container">
+                    <div>
+                        <div class="input-box">
+                            <input type="text" id="first" placeholder="First Name"/>
+                            <label for="first">First Name</label>
+                        </div>
+                        <p class="error"></p>
+                    </div>
+                    <div>
+                        <div class="input-box">
+                            <input type="text" id="last" placeholder="Last Name"/>
+                            <label for="last">Last Name</label>
+                        </div>
+                        <p class="error"></p>
+                    </div>
+                    <div>
+                        <div class="input-box">
+                            <input type="email" id="email" placeholder="Email"/>
+                            <label for="email">Email</label>
+                        </div>
+                        <p class="error"></p>
+                    </div>
+                    <div>
+                        <div class="input-box">
+                            <input type="password" id="password" placeholder="Password"/>
+                            <label for="password">Password</label>
+                        </div>
+                        <p class="error"></p>
+                    </div>
+                    <div>
+                        <div class="input-box">
+                            <input type="text" id="company" placeholder="Company" />
+                            <label for="company">Company</label>
+                        </div>
+                        <p class="error"></p>
+                    </div>
+                    <!-- <div>
+                        <input type="checkbox" />
+                        <label>I agree to the <span style="color: blue;">Terms & Condition</span></label>
+                    </div> -->
+                    <button type="submit" id="signupBtn" class=" submitBTn" style="margin-top: 20px;">Signup</button>
+                </div>
+            </form>
+
+            <form class="tab" id="loginForm">
+                <div class="form-container">
+                    <div>
+                        <div class="input-box">
+                            <input type="email" id="user" placeholder="User Name"/>
+                            <label for="user">User Name</label>
+                        </div>
+                        <p class="error"></p>
+                    </div>
+                    <div>
+                        <div class="input-box">
+                            <input type="password" id="password" placeholder="Password"/>
+                            <label for="password">Password</label>
+                        </div>
+                        <p class="error"></p>
+                    </div>
+                    <button type="submit" id="loginBtn" class=" submitBTn">Login</button>
+                </div>
+            </form>
+
+            <div id="homepage" class="tab  homepage">
+                <h1>Welome Home</h1>
+                <p>You have Successfully Logged</p>
+                <!-- <a href="companyWebpage/index.html">company profile</a> -->
+                <button type="button" 
+                id="logoutBtn" 
+                onclick="location.reload()"
+                class="btn btn-warning logoutBtn">Logout</button>
+            </div>
+            
+        </div>
+
+        <script src="index.js"></script>
+    </body>
+</html>
