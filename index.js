@@ -8,6 +8,38 @@ const formContainers = document.querySelectorAll('#signupForm .form-container')
 
 console.log(formContainers)
 
+// function darkMode(){
+//     const darkModeBtn = document.getElementById('darkModeBtn');
+//     document.body.classList.toggle('dark-mode');
+    
+//     if (document.body.classList.contains('dark-mode')) {
+//         darkModeBtn.textContent = 'Light Mode';
+//     } else {
+//         darkModeBtn.textContent = 'Dark Mode';
+//     }
+// }
+
+const inputCertificate = document.getElementById('certification');
+let certificatesPreviewEle = document.getElementById('certificatesPreview');
+let selectedFiles = [];
+    inputCertificate.addEventListener('change', () => {
+    for (const file of inputCertificate.files) {
+        console.log(file.name, file.type, file.size);
+        selectedFiles.push(file);
+    }
+    console.log(selectedFiles);
+    });
+
+
+
+function previewImage(event) {
+    const file = event.target.files[0];
+    if (file) {
+        document.getElementById('profilePreview').style.display = 'block';
+      document.getElementById('profilePreview').src = URL.createObjectURL(file);
+    }
+  }
+
 function showStep(step) {
     formContainers.forEach((container, index) => {
         container.style.display = index === step ? 'block' : 'none';
@@ -175,9 +207,9 @@ tabs.forEach((tab,index) => {
             }
 
         }
-        else{
-            alert("Please fill all the required fields.")
-        }
+        // else{
+        //     alert("Please fill all the required fields.")
+        // }
     })
 })
 

@@ -5,7 +5,8 @@
         <meta name = "viewport" content="width=device-width, initial-scale=1.0">
         <title>Registration Form</title>
         <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
     </head>
     <body>
         <div class="main-container">
@@ -20,10 +21,17 @@
                 <li><button class="sub-tab">Address</button></li>
                 <li><button class="sub-tab">Education</button></li>
             </ul>
-            <hr />
+
 
             <form class="tab active" id="signupForm">
                 <div class="form-container  ">
+                    <div class="profile-container">
+                        <label class="profile-preview">
+                            <img id="profilePreview" alt="">
+                            <input type="file" accept="image/*" id="profilePic" onchange="previewImage(event)"/>
+                        </label>
+                        <p style="font-weight: bold; font-size: 16px;">Profile Picture</p>
+                    </div>
                     <div>
                         <div class="input-box">
                             <input type="text" id="first" placeholder="First Name"/>
@@ -51,6 +59,23 @@
                             <label for="password">Password</label>
                         </div>
                         <p class="error"></p>
+                    </div>
+                    <div>
+                        <p class="gender-label">Gender:</p>
+                        <div class="radio-group">
+                            <label style="margin-right: 20px;">
+                                <input type="radio" name="gender" value="male" />
+                                Male
+                            </label>
+                            <label style="margin-right: 20px;">
+                                <input type="radio" name="gender" value="female" />
+                                Female
+                            </label>
+                            <label>
+                                <input type="radio" name="gender" value="other" />
+                                Other
+                            </label>
+                        </div>
                     </div>
                 </div>
 
@@ -100,6 +125,16 @@
                         </div>
                         <p class="error"></p>
                     </div>
+                   
+                    <div>
+                        <p class="upload-heading">Upload Certificates</p>
+                        <label class="upload-box" srtyle="margin-top: 20px;">
+                            <i class="bi bi-file-earmark-pdf-fill"></i>
+                            <span class="upload-label">Drag & Drop to Upload or Browse</span>
+                            <input type="file" accept=".pdf,.jpg,.jpeg,.png" multiple id="certification" placeholder="Certification"/>
+                        </label>
+                   </div>
+                    
                 </div>
                 <!-- <div>
                     <input type="checkbox" />

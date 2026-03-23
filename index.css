@@ -26,6 +26,7 @@ body{
     justify-content: space-around;
     align-items: center;
     width: 100%;
+    margin-bottom: 20px;
 }
 .menu-btn{
     flex: 1;
@@ -55,7 +56,7 @@ body{
 }
 
 .form-container{
-    margin-top: 30px;
+   
     /* padding-left: 60px; */
 }
 
@@ -66,7 +67,7 @@ body{
     cursor: pointer;
     border: 0.5px solid #ebe8e8;
     border-radius: 4px;
-    margin-top: 0px;
+    margin-bottom: 20px;
     background-color: transparent;
     color: grey;
     font-size: 12px;
@@ -76,7 +77,8 @@ body{
     border: 1px solid #5b54e6 ;
     color: #5b54e6;
     font-weight: bold;
-    border-radius: 10px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 .sub-tab.active{
     background-color: #5844af;
@@ -84,7 +86,6 @@ body{
     border: 1px solid #5844af;
     font-weight: bold;
     border-top-right-radius: 20px;
-    /* border-bottom-right-radius: 20px; */
     border-bottom-left-radius: 20px;
     padding: 10px 16px;
 }
@@ -135,7 +136,6 @@ ul{
     font-size: 16px;
     outline: none;
     background: none;
-
 }
 .input-box label{
     position: absolute;
@@ -157,6 +157,26 @@ ul{
     color: #0056b3;
     font-weight: bold;
 }
+.upload-box{
+    border: 1px dashed #aaa;
+    border-radius: 10px;
+    background-color: #ebe1e1;
+    padding: 20px;
+    text-align: center;
+    width: 80%;
+    transition: border-color 0.3s ease;
+    cursor: pointer;
+    /* margin-top: 30px; */
+}
+.upload-heading {
+    margin-bottom: 30px;
+}
+.upload-box input[type="file"] {
+    display: none;
+}
+.upload-box:hover {
+    border-color: #028045;
+}
 
 
 .homepage{
@@ -177,8 +197,40 @@ ul{
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
 }
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.profile-preview{
+    min-width: 120px;
+    min-height: 120px;
+    border-radius: 60px;
+    border: 1px solid #aaa;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.profile-preview input[type = "file"]{
+    display: none;
+}
+#profilePreview{
+    width: 120px;
+    height: 120px;
+    border-radius: 75px;
+    object-fit: cover;
+}
+.gender-label{
+    font-family: Arial;
+    font-size: 15px;
+    text-decoration: underline;
+}
+
+
+
+
 
 
 
