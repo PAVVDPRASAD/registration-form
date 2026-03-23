@@ -61,7 +61,7 @@ function switchTab(index){
         showStep(0);
     }
 }
-//signup form valdation
+
 function validateStep(step){
     let valid = true
     let inputs = formContainers[step].querySelectorAll('input')
@@ -110,7 +110,7 @@ function validateAllSteps(){
     }
     return valid
 };
-// login form valdation
+
 function validate(index){
     let valid = true
     let inputs = tabs[index].querySelectorAll('input')

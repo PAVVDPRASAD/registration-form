@@ -94,7 +94,7 @@ ul{
 }
 .submit-btn{
     color: #fff;
-    background-color: #5b54e6 ;
+    background-image: linear-gradient(to right, #6b64e9 , blue , rgb(10, 161, 207));
     backdrop-filter: blur(50px);
     border-radius: 20px;
     font-weight: bold;
@@ -102,10 +102,10 @@ ul{
     padding: 10px;
     cursor: pointer;
     border: none;
-    margin-top: 0px;
+    /* margin-top: 0px; */
 }
-.submit-btn:hover{
-    background-image: linear-gradient(to right, #6b64e9 , blue , rgb(10, 161, 207));
+#prevBtn{
+    background-image: linear-gradient(to right, #dfa652 , rgb(224, 81, 24) , rgb(165, 55, 4));
 }
 
 .error{
@@ -168,22 +168,47 @@ ul{
     border-radius: 25px;
 
 }
+.btns-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
 
 
 
 
-
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 768px) {
     .main-container{
         width: 500px;
         /* height: 100%; */
     }
-    .input-box{
-        width: 400px;
-
-    }
+   
     .form-container{
         padding-left: 20px;
     }
+    .input-box{
+        width: 400px;
+        
+    }
     
+    
+}
+
+@media screen and (max-width:767px) {
+    .btns-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        
+    }
+    .input-box{
+        width: 270px;
+        
+    }
+    .submit-btn{
+        max-width: 120px;
+    }
 }
